@@ -1,0 +1,4 @@
+html,
+body {
+  @apply h-full w-full font-inter text-black dark:text-white;
+}

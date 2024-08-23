@@ -1,9 +1,9 @@
 // @ts-check
 
-import antfu from '@antfu/eslint-config'
-import { includeIgnoreFile } from '@eslint/compat'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import antfu from '@antfu/eslint-config'
+import { includeIgnoreFile } from '@eslint/compat'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -18,7 +18,6 @@ export default withNuxt(
     rules: {
       'object-shorthand': ['warn', 'never'],
       'curly': ['warn', 'all'],
-      'max-len': ['error', { code: 120 }],
       'no-console': 'warn',
     },
     formatters: {
