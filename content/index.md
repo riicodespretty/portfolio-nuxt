@@ -1,5 +1,3 @@
-::test
-  --
-  id: test
-  --
+::card
+The content of the card
 ::
