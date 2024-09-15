@@ -11,5 +11,6 @@ withDefaults(defineProps<TestProps>(), {
 <template>
   <div>
     <h1>{{ id }}</h1>
+    test component
   </div>
 </template>
