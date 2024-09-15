@@ -23,8 +23,9 @@ export default withNuxt(
     formatters: {
       graphql: 'prettier',
       css: 'prettier',
-      markdown: 'prettier',
       html: 'prettier',
+      markdown: false,
     },
   }),
+  { ignores: ['content/**/*'] },
 )
