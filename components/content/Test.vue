@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface TestProps {
-  id: string
+  id?: string
+  icon: string
 }
 
 withDefaults(defineProps<TestProps>(), {

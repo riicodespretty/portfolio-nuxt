@@ -12,7 +12,6 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: 'build',
   },
-  srcDir: 'src/',
   vite: {
     resolve: {
       alias: {
