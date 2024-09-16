@@ -1,17 +1,14 @@
-<script setup>
-defineProps({
-  title: {
-    type: String,
-    default: 'Default title',
-  },
-  description: {
-    type: String,
-    default: 'Default description',
-  },
-  icon: {
-    type: String,
-    default: 'IconMarkdown',
-  },
+<script setup lang="ts">
+interface IconCardProps {
+  title: string
+  description: string
+  icon: string
+}
+
+withDefaults(defineProps<IconCardProps>(), {
+  title: 'Default title',
+  description: 'Default description',
+  icon: 'IconMarkdown',
 })
 </script>
 
@@ -22,5 +19,6 @@ defineProps({
       {{ title }}
     </h2>
     <p>{{ description }}</p>
+    <ContentSlot :use="$slots.default" unwrap="p" />
   </div>
 </template>
