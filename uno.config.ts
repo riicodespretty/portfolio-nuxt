@@ -1,3 +1,4 @@
+import type { Theme } from 'unocss/preset-uno'
 import {
   defineConfig,
   presetIcons,
@@ -5,7 +6,6 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-import type { Theme } from 'unocss/preset-uno'
 
 export const preset = {
   boxShadow: {
