@@ -51,6 +51,9 @@ jobs:
         with:
           version: 9
           run_install: false
+        env:
+          CACHE: ${{ steps.pkgman.outputs.cache }}
+          PACKAGE_MANAGER: ${{ steps.pkgman.outputs.package_manager }}
 
       - uses: actions/setup-node@v4
         with:
