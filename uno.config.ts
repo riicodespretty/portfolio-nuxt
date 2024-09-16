@@ -1,6 +1,3 @@
-import extratorUna from '@una-ui/extractor-vue-script'
-import presetUna from '@una-ui/preset'
-import prefixes from '@una-ui/preset/prefixes'
 import {
   defineConfig,
   presetIcons,
@@ -208,12 +205,6 @@ export default defineConfig({
         'display': 'inline-block',
         'vertical-align': 'middle',
       },
-    }),
-    presetUna(),
-  ],
-  extractors: [
-    extratorUna({
-      prefixes: prefixes,
     }),
   ],
   transformers: [
