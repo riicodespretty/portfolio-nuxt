@@ -2,8 +2,8 @@ import type { StorybookConfig } from '@storybook-vue/nuxt'
 
 const config: StorybookConfig = {
   stories: [
-    '../src/stories/**/*.mdx',
-    '../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
   addons: [
     'storybook-dark-mode',
