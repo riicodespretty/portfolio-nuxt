@@ -41,13 +41,13 @@ jobs:
         run: |
           cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo ""))`
           package_manager=`[ ! -z "$cache" ] && echo "$cache" || echo "pnpm"`
-          run_install=`[ ! -z "$cache" ] && echo false || echo true`
+          run_install=`[ ! -z "$cache" ] && echo "false" || echo "true"`
           echo "cache=$cache" >> $GITHUB_OUTPUT
           echo "package_manager=$package_manager" >> $GITHUB_OUTPUT
           echo "run_install=$run_install" >> $GITHUB_OUTPUT
 
       - uses: pnpm/action-setup@v4
-        if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' && steps.pkgman.outputs.run_install == false }}
+        if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' && steps.pkgman.outputs.run_install == 'false' }}
         name: Install pnpm without run_install
         id: pnpm-install-cached
         with:
@@ -59,7 +59,7 @@ jobs:
           RUN_INSTALL: ${{ steps.pkgman.outputs.run_install }}
 
       - uses: pnpm/action-setup@v4
-        if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' && steps.pkgman.outputs.run_install == true }}
+        if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' && steps.pkgman.outputs.run_install == 'true' }}
         name: Install pnpm with lockfile only
         id: pnpm-install-lockfile
         with:
