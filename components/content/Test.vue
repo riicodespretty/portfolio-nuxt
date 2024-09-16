@@ -11,7 +11,7 @@ withDefaults(defineProps<TestProps>(), {
 
 <template>
   <div class="border rounded bg-white p-2 dark:border-gray-700 dark:bg-black">
-    <slot />
+    <ContentSlot />
   </div>
   <h1>
     {{ id }}
