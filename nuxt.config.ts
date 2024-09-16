@@ -20,22 +20,15 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    '@formkit/auto-animate/nuxt',
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/scripts',
     '@nuxthq/studio',
     '@nuxtjs/color-mode',
-    '@nuxtjs/device',
-    '@nuxtjs/i18n',
-    '@nuxtjs/seo',
     '@nuxtjs/storybook',
     '@unocss/nuxt',
-    '@una-ui/nuxt',
-    '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     'nuxt-delay-hydration',
   ],
@@ -52,8 +45,5 @@ export default defineNuxtConfig({
   storybook: {
     host: 'http://localhost',
     port: 6006,
-  },
-  una: {
-    prefix: 'U',
   },
 })
