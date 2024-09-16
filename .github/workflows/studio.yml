@@ -65,7 +65,8 @@ jobs:
         with:
           version: 9
           run_install:
-            args: [--lockfile-only]
+            args:
+              - --lockfile-only
         env:
           CACHE: ${{ steps.pkgman.outputs.cache }}
           PACKAGE_MANAGER: ${{ steps.pkgman.outputs.package_manager }}
