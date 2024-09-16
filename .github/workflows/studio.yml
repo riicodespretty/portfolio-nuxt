@@ -39,7 +39,7 @@ jobs:
       - name: Identify package manager
         id: pkgman
         run: |
-          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo ""))`
+          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo "pnpm"))`
           package_manager=`[ ! -z "$cache" ] && echo "$cache" || echo "pnpm"`
           run_install=`[ ! -z "$cache" ] && echo "false" || echo "true"`
           echo "cache=$cache" >> $GITHUB_OUTPUT
