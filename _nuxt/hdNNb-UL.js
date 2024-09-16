@@ -1,0 +1,1 @@
+import{d as r,c as s,e as t,f as a,A as o,t as n,F as d}from"./CBfTdF94.js";const l={class:"border rounded bg-white p-2 dark:border-gray-700 dark:bg-black"},u=r({__name:"Test",props:{id:{default:"Test ID"},icon:{}},setup(c){return(e,i)=>(s(),t(d,null,[a("div",l,[o(e.$slots,"default")]),a("h1",null,n(e.id),1)],64))}});export{u as default};
