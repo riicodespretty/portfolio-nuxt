@@ -39,7 +39,7 @@ jobs:
       - name: Identify package manager
         id: pkgman
         run: |
-          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo ""))`
+          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || ([ -f "./bun.lockb" ] && echo "bun" || echo ""))`
           package_manager=`[ ! -z "$cache" ] && echo "$cache" || echo "pnpm"`
           echo "cache=$cache" >> $GITHUB_OUTPUT
           echo "package_manager=$package_manager" >> $GITHUB_OUTPUT
@@ -56,9 +56,24 @@ jobs:
           PACKAGE_MANAGER: ${{ steps.pkgman.outputs.package_manager }}
 
       - uses: actions/setup-node@v4
+        if: ${{ steps.pkgman.outputs.package_manager != 'bun' }}
         with:
           node-version: ${{ matrix.node }}
           cache: ${{ steps.pkgman.outputs.cache }}
+
+      - uses: actions/cache@v4
+        if: ${{ steps.pkgman.outputs.package_manager == 'bun' }}
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-${{ matrix.bun }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.bun }}-bun-
+
+      - name: Install oven-sh/bun
+        if: ${{ steps.pkgman.outputs.package_manager == 'bun' }}
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
       - name: Install dependencies
         run: ${{ steps.pkgman.outputs.package_manager }} install
