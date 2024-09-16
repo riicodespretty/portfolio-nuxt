@@ -39,10 +39,12 @@ jobs:
       - name: Identify package manager
         id: pkgman
         run: |
-          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo "pnpm"))`
+          cache=`[ -f "./pnpm-lock.yaml" ] && echo "pnpm" || ([ -f "./package-lock.json" ] && echo "npm" || ([ -f "./yarn.lock" ] && echo "yarn" || echo ""))`
           package_manager=`[ ! -z "$cache" ] && echo "$cache" || echo "pnpm"`
+          run_install=`[ ! -z "$cache" ] && echo false || echo -e "\n  args: [--lockfile-only]"`
           echo "cache=$cache" >> $GITHUB_OUTPUT
           echo "package_manager=$package_manager" >> $GITHUB_OUTPUT
+          echo "run_install=$run_install" >> $GITHUB_OUTPUT
 
       - uses: pnpm/action-setup@v4
         if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' }}
@@ -50,10 +52,11 @@ jobs:
         id: pnpm-install
         with:
           version: 9
-          run_install: false
+          run_install: ${{ steps.pkgman.outputs.run_install }}
         env:
           CACHE: ${{ steps.pkgman.outputs.cache }}
           PACKAGE_MANAGER: ${{ steps.pkgman.outputs.package_manager }}
+          RUN_INSTALL: ${{ steps.pkgman.outputs.run_install }}
 
       - uses: actions/setup-node@v4
         with:
