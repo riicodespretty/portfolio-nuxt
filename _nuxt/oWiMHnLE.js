@@ -1,1 +1,0 @@
-import{d as r,c as o,e as t,A as s}from"./BM21PcX8.js";const a={class:"border rounded bg-white p-2 dark:border-gray-700 dark:bg-black"},l=r({__name:"Test",props:{id:{default:"Test ID"},icon:{}},setup(d){return(e,n)=>(o(),t("div",a,[s(e.$slots,"default")]))}});export{l as default};
