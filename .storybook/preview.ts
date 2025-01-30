@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook-vue/nuxt'
-import '~/assets/main.css'
 import { DocsContainer, shockbyteStorybookDarkTheme, shockbyteStorybookLightTheme } from './themes'
+import '~/assets/main.css'
 
 const preview: Preview = {
   parameters: {

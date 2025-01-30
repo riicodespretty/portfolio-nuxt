@@ -1,7 +1,7 @@
+import type { FC, PropsWithChildren } from 'react'
 import { DocsContainer as BaseContainer, type DocsContainerProps } from '@storybook/blocks'
 import { addons } from '@storybook/preview-api'
 import { create, themes } from '@storybook/theming'
-import type { FC, PropsWithChildren } from 'react'
 import { createElement, useEffect, useState } from 'react'
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode'
 // @ts-expect-error: Cannot find type module declarations, resolved by vite alias
