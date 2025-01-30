@@ -56,7 +56,6 @@ jobs:
           PACKAGE_MANAGER: ${{ steps.pkgman.outputs.package_manager }}
 
       - uses: actions/setup-node@v4
-        if: ${{ steps.pkgman.outputs.package_manager != 'bun' }}
         with:
           node-version: ${{ matrix.node }}
           cache: ${{ steps.pkgman.outputs.cache }}
@@ -76,7 +75,7 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
-        run: ${{ steps.pkgman.outputs.package_manager }} install
+        run: ${{ steps.pkgman.outputs.package_manager }} install --frozen-lockfile
 
       - name: Create .nuxtrc
         run: echo $'\nautoImport=true\nmodules[]=@nuxthq/studio' >> .nuxtrc
