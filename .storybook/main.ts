@@ -9,7 +9,8 @@ const config: StorybookConfig = {
     'storybook-dark-mode',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    // '@storybook/addon-interactions',
+    '@storybook/experimental-addon-test',
     '@storybook/addon-a11y',
   ],
   framework: {
