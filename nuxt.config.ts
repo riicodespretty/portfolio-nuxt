@@ -38,6 +38,9 @@ export default defineNuxtConfig({
     },
   },
   fonts: {
+    providers: {
+      fontshare: false,
+    },
     families: [
       { name: 'Inter', provider: 'fontsource' },
     ],
