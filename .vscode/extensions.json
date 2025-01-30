@@ -1,9 +1,10 @@
 {
-    "recommendations": [
-        "dbaeumer.vscode-eslint",
-        "rvest.vs-code-prettier-eslint",
-        "Tobermory.es6-string-html",
-        "Nuxt.mdc",
-        "unifiedjs.vscode-remark"
-    ]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint",
+    "Tobermory.es6-string-html",
+    "Nuxt.mdc",
+    "unifiedjs.vscode-remark",
+    "webhint.vscode-webhint"
+  ]
 }
