@@ -56,9 +56,17 @@ jobs:
           PACKAGE_MANAGER: ${{ steps.pkgman.outputs.package_manager }}
 
       - uses: actions/setup-node@v4
+        name: Setup Node and cache
+        if: ${{ steps.pkgman.outputs.package_manager != 'bun' }}
         with:
           node-version: ${{ matrix.node }}
           cache: ${{ steps.pkgman.outputs.cache }}
+
+      - uses: actions/setup-node@v4
+        name: Setup Node (without cache)
+        if: ${{ steps.pkgman.outputs.package_manager == 'bun' }}
+        with:
+          node-version: ${{ matrix.node }}
 
       - uses: actions/cache@v4
         if: ${{ steps.pkgman.outputs.package_manager == 'bun' }}
