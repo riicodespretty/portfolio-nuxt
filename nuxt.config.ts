@@ -25,7 +25,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxthq/studio',
     '@nuxtjs/color-mode',
     '@nuxtjs/storybook',
     '@unocss/nuxt',
@@ -48,5 +47,11 @@ export default defineNuxtConfig({
   storybook: {
     host: 'http://localhost',
     port: 6006,
+  },
+  content: {
+    preview: {
+      api: 'https://api.nuxt.studio',
+      dev: import.meta.dev,
+    },
   },
 })

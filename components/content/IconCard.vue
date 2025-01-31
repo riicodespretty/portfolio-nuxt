@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Slots } from 'vue'
-
 interface IconCardProps {
   title: string
   description: string
@@ -12,8 +10,6 @@ withDefaults(defineProps<IconCardProps>(), {
   description: 'Default description',
   icon: 'IconMarkdown',
 })
-
-const slots: Slots = useSlots()
 </script>
 
 <template>
@@ -23,6 +19,6 @@ const slots: Slots = useSlots()
       {{ title }}
     </h2>
     <p>{{ description }}</p>
-    <ContentSlot :use="slots.default" unwrap="p" />
+    <slot mdc-unwrap="p" />
   </div>
 </template>
