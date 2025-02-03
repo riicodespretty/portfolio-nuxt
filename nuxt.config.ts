@@ -49,6 +49,17 @@ export default defineNuxtConfig({
     port: 6006,
   },
   content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark',
+            sepia: 'monokai',
+          },
+        },
+      },
+    },
     preview: {
       api: 'https://api.nuxt.studio',
       dev: import.meta.dev,
