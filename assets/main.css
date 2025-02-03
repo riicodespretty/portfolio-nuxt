@@ -1,4 +1,4 @@
 html,
 body {
-  @apply h-full w-full font-inter text-black dark:text-white;
+  @apply h-full w-full font-inter text-tertiary bg-neutral dark:(text-tertiary-dark bg-neutral-dark);
 }

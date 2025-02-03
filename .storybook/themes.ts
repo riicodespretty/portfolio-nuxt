@@ -12,14 +12,14 @@ const presetColors = preset.colors
 
 export const shockbyteStorybookDarkTheme = create({
   ...themes.dark,
-  appBg: presetColors.dark.n[0],
-  appContentBg: presetColors.dark.n[10],
-  barBg: presetColors.dark.n[10],
+  appBg: presetColors.neutral.dark,
+  appContentBg: presetColors.neutral[900],
+  barBg: presetColors.neutral[900],
 })
 
 export const shockbyteStorybookLightTheme = create({
   ...themes.light,
-  appBg: presetColors.white,
+  appBg: presetColors.neutral.DEFAULT,
 })
 
 /**
