@@ -1,9 +1,9 @@
+// Import the a11y addon annotations
+import * as a11yAddonAnnotations from '@storybook/addon-a11y/preview'
+
 import { setProjectAnnotations } from '@storybook/vue3'
 
 import { beforeAll } from 'vitest'
-
-// Import the a11y addon annotations
-import * as a11yAddonAnnotations from '@storybook/addon-a11y/preview'
 
 // Optionally import your own annotations
 import * as projectAnnotations from './preview'

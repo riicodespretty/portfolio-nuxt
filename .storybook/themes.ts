@@ -1,5 +1,6 @@
+import type { DocsContainerProps } from '@storybook/blocks'
 import type { FC, PropsWithChildren } from 'react'
-import { DocsContainer as BaseContainer, type DocsContainerProps } from '@storybook/blocks'
+import { DocsContainer as BaseContainer } from '@storybook/blocks'
 import { addons } from '@storybook/preview-api'
 import { create, themes } from '@storybook/theming'
 import { createElement, useEffect, useState } from 'react'
