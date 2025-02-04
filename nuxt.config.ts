@@ -65,4 +65,10 @@ export default defineNuxtConfig({
       dev: import.meta.dev,
     },
   },
+  unocss: {
+    nuxtLayers: true,
+  },
+  colorMode: {
+    classSuffix: '',
+  },
 })

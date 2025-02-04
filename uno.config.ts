@@ -1,12 +1,13 @@
 import type { Theme } from 'unocss/preset-uno'
+import { mergeConfigs } from '@unocss/core'
 import {
-  defineConfig,
   presetIcons,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
 import presetAutoprefixer from 'unocss-preset-autoprefixer'
+import config from './.nuxt/uno.config.mjs'
 
 export const preset = {
   boxShadow: {
@@ -17,109 +18,111 @@ export const preset = {
   },
   colors: {
     neutral: {
-      DEFAULT: 'oklch(96.14% 0.0013 286.38)', // #f2f2f3
-      dark: 'oklch(15.48% 0.0021 286.15)', // #0c0c0d
-      50: 'oklch(96.14% 0.001 286.38)',
-      100: 'oklch(91.97% 0.004 286.32)',
-      200: 'oklch(84.02% 0.006 286.28)',
-      300: 'oklch(75.62% 0.010 286.16)',
-      400: 'oklch(67.24% 0.012 286.08)',
-      500: 'oklch(58.32% 0.017 285.87)',
-      600: 'oklch(49.89% 0.013 285.93)',
-      700: 'oklch(40.80% 0.012 285.87)',
-      800: 'oklch(31.47% 0.007 285.99)',
-      900: 'oklch(21.03% 0.006 285.89)',
-      950: 'oklch(15.48% 0.002 286.15)',
-    },
-    primary: {
-      DEFAULT: 'oklch(73.71% 0.148 291.62)', // #ac97ff
-      50: 'oklch(93.44% 0.035 296.28)',
-      100: 'oklch(87.00% 0.071 293.87)',
-      200: 'oklch(74.16% 0.145 291.46)',
-      300: 'oklch(62.16% 0.217 287.67)',
-      400: 'oklch(52.24% 0.274 280.40)',
-      500: 'oklch(46.64% 0.304 270.67)',
-      600: 'oklch(39.55% 0.256 271.33)',
-      700: 'oklch(32.13% 0.206 272.44)',
-      800: 'oklch(24.21% 0.153 274.09)',
-      900: 'oklch(15.71% 0.095 280.06)',
-      950: 'oklch(11.08% 0.064 287.00)',
-    },
-    secondary: {
-      DEFAULT: 'oklch(73.01% 0.1816 353.74)', // #fb70b0
-      50: 'oklch(94.64% 0.032 348.09)',
-      100: 'oklch(89.64% 0.065 348.56)',
-      200: 'oklch(80.18% 0.134 350.88)',
-      300: 'oklch(72.24% 0.198 354.35)',
-      400: 'oklch(66.79% 0.244 358.71)',
-      500: 'oklch(64.29% 0.258 5.28)',
-      600: 'oklch(54.37% 0.219 4.81)',
-      700: 'oklch(43.98% 0.177 4.06)',
-      800: 'oklch(32.96% 0.133 1.91)',
-      900: 'oklch(20.87% 0.085 357.72)',
-      950: 'oklch(14.29% 0.059 352.38)',
+      DEFAULT: 'oklch(var(--neutral-default))', // #f2f2f3
+      dark: 'oklch(var(--neutral-dark))', // #0c0c0d
+      50: 'oklch(var(--text-50))',
+      100: 'oklch(var(--text-100))',
+      200: 'oklch(var(--text-200))',
+      300: 'oklch(var(--text-300))',
+      400: 'oklch(var(--text-400))',
+      500: 'oklch(var(--text-500))',
+      600: 'oklch(var(--text-600))',
+      700: 'oklch(var(--text-700))',
+      800: 'oklch(var(--text-800))',
+      900: 'oklch(var(--text-900))',
+      950: 'oklch(var(--text-950))',
     },
     tertiary: {
-      DEFAULT: 'oklch(15.13% 0.0768 269.43)', // #03052b
-      dark: 'oklch(88.66% 0.0522 282.9)', // #d4d6fc
-      50: 'oklch(93.65% 0.028 283.66)',
-      100: 'oklch(87.50% 0.058 281.91)',
-      200: 'oklch(74.85% 0.120 280.98)',
-      300: 'oklch(62.73% 0.185 277.24)',
-      400: 'oklch(51.83% 0.246 271.70)',
-      500: 'oklch(44.50% 0.286 265.50)',
-      600: 'oklch(37.91% 0.241 265.72)',
-      700: 'oklch(31.03% 0.192 266.31)',
-      800: 'oklch(23.71% 0.140 267.51)',
-      900: 'oklch(16.09% 0.083 268.45)',
-      950: 'oklch(11.69% 0.051 271.52)',
+      DEFAULT: 'oklch(var(--tertiary-default))', // #d4d6fc
+      dark: 'oklch(var(--tertiary-dark))', // #03052b
+      50: 'oklch(var(--tertiary-50))',
+      100: 'oklch(var(--tertiary-100))',
+      200: 'oklch(var(--tertiary-200))',
+      300: 'oklch(var(--tertiary-300))',
+      400: 'oklch(var(--tertiary-400))',
+      500: 'oklch(var(--tertiary-500))',
+      600: 'oklch(var(--tertiary-600))',
+      700: 'oklch(var(--tertiary-700))',
+      800: 'oklch(var(--tertiary-800))',
+      900: 'oklch(var(--tertiary-900))',
+      950: 'oklch(var(--tertiary-950))',
+    },
+    primary: {
+      DEFAULT: 'oklch(var(--primary-default))', // #ac97ff
+      50: 'oklch(var(--primary-50))',
+      100: 'oklch(var(--primary-100))',
+      200: 'oklch(var(--primary-200))',
+      300: 'oklch(var(--primary-300))',
+      400: 'oklch(var(--primary-400))',
+      500: 'oklch(var(--primary-500))',
+      600: 'oklch(var(--primary-600))',
+      700: 'oklch(var(--primary-700))',
+      800: 'oklch(var(--primary-800))',
+      900: 'oklch(var(--primary-900))',
+      950: 'oklch(var(--primary-950))',
+    },
+    secondary: {
+      DEFAULT: 'oklch(var(--secondary-default))', // #fb70b0
+      50: 'oklch(var(--secondary-50))',
+      100: 'oklch(var(--secondary-100))',
+      200: 'oklch(var(--secondary-200))',
+      300: 'oklch(var(--secondary-300))',
+      400: 'oklch(var(--secondary-400))',
+      500: 'oklch(var(--secondary-500))',
+      600: 'oklch(var(--secondary-600))',
+      700: 'oklch(var(--secondary-700))',
+      800: 'oklch(var(--secondary-800))',
+      900: 'oklch(var(--secondary-900))',
+      950: 'oklch(var(--secondary-950))',
     },
     accent: {
-      DEFAULT: 'oklch(79.75% 0.1141 233.93)', // #6bc9fb
-      50: 'oklch(96.36% 0.020 229.03)',
-      100: 'oklch(92.83% 0.041 230.98)',
-      200: 'oklch(86.03% 0.079 231.67)',
-      300: 'oklch(79.49% 0.115 234.50)',
-      400: 'oklch(73.85% 0.145 237.69)',
-      500: 'oklch(69.06% 0.166 243.07)',
-      600: 'oklch(58.55% 0.139 242.67)',
-      700: 'oklch(47.54% 0.111 242.03)',
-      800: 'oklch(36.13% 0.081 239.70)',
-      900: 'oklch(23.46% 0.049 236.31)',
-      950: 'oklch(16.32% 0.031 232.75)',
-    },
-    error: {
-      DEFAULT: 'oklch(93.21% 0.1486 100.51)', // #ffeb6b
-      50: 'oklch(98.73% 0.030 100.86)',
-      100: 'oklch(97.36% 0.057 99.87)',
-      200: 'oklch(95.02% 0.110 100.35)',
-      300: 'oklch(93.16% 0.153 100.80)',
-      400: 'oklch(91.40% 0.179 99.87)',
-      500: 'oklch(89.87% 0.186 97.86)',
-      600: 'oklch(76.08% 0.157 98.14)',
-      700: 'oklch(61.62% 0.128 98.58)',
-      800: 'oklch(46.02% 0.095 98.48)',
-      900: 'oklch(29.18% 0.061 99.88)',
-      950: 'oklch(19.88% 0.041 100.69)',
+      DEFAULT: 'oklch(var(--accent-default))', // #6bc9fb
+      50: 'oklch(var(--accent-50))',
+      100: 'oklch(var(--accent-100))',
+      200: 'oklch(var(--accent-200))',
+      300: 'oklch(var(--accent-300))',
+      400: 'oklch(var(--accent-400))',
+      500: 'oklch(var(--accent-500))',
+      600: 'oklch(var(--accent-600))',
+      700: 'oklch(var(--accent-700))',
+      800: 'oklch(var(--accent-800))',
+      900: 'oklch(var(--accent-900))',
+      950: 'oklch(var(--accent-950))',
     },
     success: {
-      DEFAULT: 'oklch(79.48% 0.1302 162.45)', // #61d6a3
-      50: 'oklch(97.21% 0.018 166.39)',
-      100: 'oklch(94.42% 0.037 168.37)',
-      200: 'oklch(88.91% 0.071 166.27)',
-      300: 'oklch(83.89% 0.104 164.77)',
-      400: 'oklch(79.05% 0.133 162.35)',
-      500: 'oklch(74.93% 0.156 159.57)',
-      600: 'oklch(63.44% 0.130 159.68)',
-      700: 'oklch(51.69% 0.104 160.18)',
-      800: 'oklch(38.92% 0.076 160.60)',
-      900: 'oklch(25.34% 0.044 162.56)',
-      950: 'oklch(17.49% 0.025 166.65)',
+      DEFAULT: 'oklch(var(--success-default))', // #61d6a3
+      50: 'oklch(var(--success-50))',
+      100: 'oklch(var(--success-100))',
+      200: 'oklch(var(--success-200))',
+      300: 'oklch(var(--success-300))',
+      400: 'oklch(var(--success-400))',
+      500: 'oklch(var(--success-500))',
+      600: 'oklch(var(--success-600))',
+      700: 'oklch(var(--success-700))',
+      800: 'oklch(var(--success-800))',
+      900: 'oklch(var(--success-900))',
+      950: 'oklch(var(--success-950))',
     },
+    error: {
+      DEFAULT: 'oklch(var(--error-default))', // #ffeb6b
+      50: 'oklch(var(--error-50))',
+      100: 'oklch(var(--error-100))',
+      200: 'oklch(var(--error-200))',
+      300: 'oklch(var(--error-300))',
+      400: 'oklch(var(--error-400))',
+      500: 'oklch(var(--error-500))',
+      600: 'oklch(var(--error-600))',
+      700: 'oklch(var(--error-700))',
+      800: 'oklch(var(--error-800))',
+      900: 'oklch(var(--error-900))',
+      950: 'oklch(var(--error-950))',
+    },
+
   },
 } as const satisfies Partial<Theme>
 
-export default defineConfig({
+export default mergeConfigs([config, {
+  outputToCssLayers: true,
   presets: [
     presetUno(),
     presetIcons({
@@ -151,4 +154,4 @@ export default defineConfig({
       inter: 'Inter',
     },
   }),
-})
+}])

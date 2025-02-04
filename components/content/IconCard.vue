@@ -14,7 +14,7 @@ withDefaults(defineProps<IconCardProps>(), {
 
 <template>
   <div class="border rounded bg-white p-6 dark:border-gray-700 dark:bg-black">
-    <component :is="icon" class="h-20 w-20" />
+    <Icon name="i-heroicons:document" class="h-20 w-20" />
     <h2 class="mb-2 text-3xl font-semibold">
       {{ title }}
     </h2>

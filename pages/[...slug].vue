@@ -13,6 +13,7 @@ useSeoMeta({
 
 <template>
   <main>
+    <ColorSwitcher />
     <ContentRenderer v-if="content" :value="content" />
   </main>
 </template>
