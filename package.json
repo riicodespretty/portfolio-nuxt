@@ -13,7 +13,8 @@
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev --port 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:browser": "vitest"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.10.3",
@@ -42,11 +43,14 @@
     "@storybook/vue3": "^8.5.2",
     "@storybook/vue3-vite": "^8.5.2",
     "@types/node": "^22.12.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitest/browser": "^3.0.5",
     "@vueuse/nuxt": "^12.5.0",
     "axe-playwright": "^2.0.3",
     "browserslist": "^4.24.4",
     "eslint": "^9.19.0",
     "eslint-plugin-format": "^1.0.1",
+    "playwright": "^1.50.1",
     "remark": "^15.0.1",
     "remark-lint": "^10.0.1",
     "remark-mdc": "^3.5.3",
@@ -58,6 +62,7 @@
     "storybook-dark-mode": "^4.0.2",
     "storybook-vue3-router": "^5.0.0",
     "typescript": "~5.7.3",
+    "vitest-browser-vue": "^0.1.0",
     "vue-tsc": "^2.2.0"
   }
 }
