@@ -7,20 +7,17 @@ import { createElement, useEffect, useState } from 'react'
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode'
 // @ts-expect-error: Cannot find type module declarations, resolved by vite alias
 import { store } from 'storybook-dark-mode/tool'
-import { preset } from '../uno.config'
-
-const presetColors = preset.colors
 
 export const shockbyteStorybookDarkTheme = create({
   ...themes.dark,
-  appBg: presetColors.neutral.dark,
-  appContentBg: presetColors.neutral[900],
-  barBg: presetColors.neutral[900],
+  appBg: '#0c0c0d',
+  appContentBg: '#18181b',
+  barBg: '#18181b',
 })
 
 export const shockbyteStorybookLightTheme = create({
   ...themes.light,
-  appBg: presetColors.neutral.DEFAULT,
+  appBg: '#f2f2f3',
 })
 
 /**
