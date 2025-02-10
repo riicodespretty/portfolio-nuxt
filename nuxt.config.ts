@@ -1,4 +1,5 @@
 import { fileURLToPath } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -12,7 +13,11 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: 'build',
   },
+  css: ['~/assets/main.css'],
   vite: {
+    plugins: [
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
         'storybook-dark-mode/tool': fileURLToPath(new URL('./node_modules/storybook-dark-mode/dist/esm/Tool.js', import.meta.url)),
@@ -27,7 +32,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     '@nuxtjs/storybook',
-    '@unocss/nuxt',
     '@vueuse/nuxt',
     'nuxt-delay-hydration',
   ],
@@ -65,10 +69,8 @@ export default defineNuxtConfig({
       dev: import.meta.dev,
     },
   },
-  unocss: {
-    nuxtLayers: true,
-  },
   colorMode: {
+    preference: 'system',
     classSuffix: '',
   },
 })
